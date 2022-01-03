@@ -14,7 +14,6 @@ def replacer(s, newstring, index):
     return s[:index] + newstring + s[index + 1:]
 
 def makewidth(width: int,hend:bool=False,reverse: bool = False):
-    output = ""
     start =""
     end = ""
     if hend != True:
@@ -24,26 +23,20 @@ def makewidth(width: int,hend:bool=False,reverse: bool = False):
         else:
             start = line["c1"]
             end = line["d1"]
-    for _ in range(width):
-        output += line["a"]
+    output = line["a"]*width
     return f"{start}{output}{end}"
 
 def makeheight(height: int,hend:bool=False):
-    output = ""
     start =""
     end = ""
     if hend == True:
         start = f'{line["e1"]}\n'
         end = line["e2"]
-    for _ in range(height):
-        output += f'{line["b"]}\n'
+    output = f'{line["b"]}\n'*height
     return f"{start}{output}{end}"
 
 def makespace(width: int):
-    output = ""
-    for _ in range(width):
-        output += " "
-    return output
+    return " "*width
 
 '''
 def box_(width: int,height : int):
